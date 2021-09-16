@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-4.0.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    <!--mvc 最全的头文件-->
+
+    <!--配置包的扫描器-->
+    <context:component-scan base-package="com.chl"/>
+
+    <!--注解驱动-->
+    <mvc:annotation-driven/>
+    <!--配置视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--<property name="prefix" value="/WEB-INF/jsp/"></property>-->
+        <property name="prefix" value="/WEB-INF/pages/" />    <!--pages：这个名字可以随便起，但是要和 WEB-INF 下的名字保持一致-->
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!--配置静态资源-->
+    <mvc:resources mapping="/res/**" location="/WEB-INF/res/"/>
+
+    <!-- aop的自动代理proxy-target-class属性值决定是基于接口的还是基于类的代理被创建。
+       如果proxy-target-class 属性值被设置为true，那么基于类的代理将起作用（这时需要cglib库）。
+       如果proxy-target-class属值被设置为false或者这个属性被省略，那么标准的JDK 基于接口的代理将起作用
+   -->
+    <aop:aspectj-autoproxy proxy-target-class="false"/>
+
+</beans>

@@ -1,0 +1,18 @@
+restFul风格：是 对应增删改查的
+    get ----》查
+    post ----》增加
+    del ----》删除
+    update ----》改
+其实就是 觉得url中，写问号 这样传统 太难看了
+http协议：有7种
+Get 请求 http://www.baidu.com?keyword-吴大哥-xxx-xxx
+POST请求  http://www.baidu.com  formDate   keyword:吴大哥  newTitle：在哪里
+以上是我们所学的get 和 post 请求，那么我们这么写，比如查询
+get 查询单个：Get请求  http://www.baidu.com?findById=233717 ---->根据这个id查询 一个对象
+            restFul  ---->  http://www.baidu.com/233717
+
+
+post 没有变
+del：删除    查询单个：Get请求  http://www.baidu.com?findById ---->根据这个id删除 一个对象
+                      restFul  ---->  http://www.baidu.com/233717
+put（update）：没有变
